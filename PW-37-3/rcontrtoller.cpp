@@ -1,5 +1,6 @@
 #include "rcontrtoller.h"
 #include "ui_RController.h"
+#include "ButterPressButton.h"
 #include <QTimer>
 
 RContrtoller::RContrtoller(QWidget * parrent)
@@ -7,6 +8,17 @@ RContrtoller::RContrtoller(QWidget * parrent)
     setParent(parrent);
     ui = new Ui::MainWindow;
     ui->setupUi(this);
+
+    connect(ui->button0,&ButterPressButton::onPressGiveButtonPtr,this,&RContrtoller::buttonNumber);
+    connect(ui->button1,&ButterPressButton::onPressGiveButtonPtr,this,&RContrtoller::buttonNumber);
+    connect(ui->button2,&ButterPressButton::onPressGiveButtonPtr,this,&RContrtoller::buttonNumber);
+    connect(ui->button3,&ButterPressButton::onPressGiveButtonPtr,this,&RContrtoller::buttonNumber);
+    connect(ui->button4,&ButterPressButton::onPressGiveButtonPtr,this,&RContrtoller::buttonNumber);
+    connect(ui->button5,&ButterPressButton::onPressGiveButtonPtr,this,&RContrtoller::buttonNumber);
+    connect(ui->button6,&ButterPressButton::onPressGiveButtonPtr,this,&RContrtoller::buttonNumber);
+    connect(ui->button7,&ButterPressButton::onPressGiveButtonPtr,this,&RContrtoller::buttonNumber);
+    connect(ui->button8,&ButterPressButton::onPressGiveButtonPtr,this,&RContrtoller::buttonNumber);
+    connect(ui->button9,&ButterPressButton::onPressGiveButtonPtr,this,&RContrtoller::buttonNumber);
 }
 
 void RContrtoller::addNumbers()
@@ -23,97 +35,15 @@ void RContrtoller::addNumbers()
     tempChen.clear();
 }
 
-void RContrtoller::add0()
+void RContrtoller::buttonNumber(ButterPressButton * currentButton)
 {
+    QString num = currentButton->text();
     if(tempChen.isEmpty())
     {
         QTimer::singleShot(2000,this,&RContrtoller::addNumbers);
     }
-    tempChen += '0';
+    tempChen += num;
 }
-
-void RContrtoller::add1()
-{
-    if(tempChen.isEmpty())
-    {
-        QTimer::singleShot(2000,this,&RContrtoller::addNumbers);
-    }
-    tempChen += '1';
-}
-
-void RContrtoller::add2()
-{
-    if(tempChen.isEmpty())
-    {
-        QTimer::singleShot(2000,this,&RContrtoller::addNumbers);
-    }
-    tempChen += '2';
-}
-
-void RContrtoller::add3()
-{
-    if(tempChen.isEmpty())
-    {
-        QTimer::singleShot(2000,this,&RContrtoller::addNumbers);
-    }
-    tempChen += '3';
-}
-
-void RContrtoller::add4()
-{
-    if(tempChen.isEmpty())
-    {
-        QTimer::singleShot(2000,this,&RContrtoller::addNumbers);
-    }
-    tempChen += '4';
-}
-
-void RContrtoller::add5()
-{
-    if(tempChen.isEmpty())
-    {
-        QTimer::singleShot(2000,this,&RContrtoller::addNumbers);
-    }
-    tempChen += '5';
-}
-
-void RContrtoller::add6()
-{
-    if(tempChen.isEmpty())
-    {
-        QTimer::singleShot(2000,this,&RContrtoller::addNumbers);
-    }
-    tempChen += '6';
-}
-
-void RContrtoller::add7()
-{
-    if(tempChen.isEmpty())
-    {
-        QTimer::singleShot(2000,this,&RContrtoller::addNumbers);
-    }
-    tempChen += '7';
-}
-
-void RContrtoller::add8()
-{
-    if(tempChen.isEmpty())
-    {
-        QTimer::singleShot(2000,this,&RContrtoller::addNumbers);
-    }
-    tempChen += '8';
-}
-
-void RContrtoller::add9()
-{
-    if(tempChen.isEmpty())
-    {
-        QTimer::singleShot(2000,this,&RContrtoller::addNumbers);
-    }
-    tempChen += '9';
-}
-
-
 
 void RContrtoller::on_buttonVolUp_clicked()
 {

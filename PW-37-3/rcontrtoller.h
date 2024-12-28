@@ -5,6 +5,7 @@
 #include "ui_RController.h"
 
 class RContrtoller;
+class ButterPressButton;
 
 class RContrtoller : public QMainWindow
 {
@@ -18,17 +19,8 @@ private :
     QString tempChen = "";
     int volNum = 0;
 private slots:
+    void buttonNumber(ButterPressButton * currentButton);
     void addNumbers();
-    void add0();
-    void add1();
-    void add2();
-    void add3();
-    void add4();
-    void add5();
-    void add6();
-    void add7();
-    void add8();
-    void add9();
     void on_buttonVolUp_clicked();
     void on_buttonVolDown_clicked();
     void on_buttonChanUp_clicked();
